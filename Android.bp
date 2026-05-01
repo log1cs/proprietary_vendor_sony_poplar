@@ -1,0 +1,78 @@
+//
+// Automatically generated file. DO NOT MODIFY
+//
+
+soong_namespace {
+    imports: [
+        "device/sony/yoshino-common",
+        "hardware/qcom-caf/msm8998",
+        "vendor/sony/yoshino-common",
+    ],
+}
+
+cc_prebuilt_library_shared {
+    name: "lib_fpc_tac_shared",
+    owner: "sony",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/lib_fpc_tac_shared.so",
+            ],
+            shared_libs: [
+                "libcutils",
+                "liblog",
+                "libQSEEComAPI",
+                "libidd",
+                "libprotobuf-c-idd",
+                "liblights-core",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_binary {
+    name: "fpc_fingerprint@2.1_HIDL-service",
+    owner: "sony",
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/bin/hw/fpc_fingerprint@2.1_HIDL-service",
+            ],
+            shared_libs: [
+                "liblog",
+                "libhidlbase",
+                "libhidltransport",
+                "libutils",
+                "android.hardware.biometrics.fingerprint@2.1",
+                "lib_fpc_tac_shared",
+                "com.fingerprints.extension@1.0",
+                "libcutils",
+                "libidd",
+                "libprotobuf-c-idd",
+                "liblights-core",
+                "libQSEEComAPI",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    strip: {
+        none: true,
+    },
+    prefer: true,
+    relative_install_path: "hw",
+    soc_specific: true,
+}
